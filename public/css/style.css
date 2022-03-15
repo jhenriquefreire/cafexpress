@@ -1,0 +1,633 @@
+body {
+    margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 1vw;
+}
+
+::-webkit-scrollbar-track{
+    background: #BA0000;
+    border-radius: 10vw;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #FAE5D3;
+    border-radius: 10vw;
+}
+
+header{
+   background-color: #BA0000;
+   box-shadow: 0px 1px 5px grey;
+   color: #FAE5D3;
+   font-weight: bold;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   box-sizing: border-box;
+}
+.cabecalho-l{
+        height: 10vh; /*original 7%*/
+        width: 40vw;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
+}
+.logotop{
+    height: 10vh;
+    margin-left: 1vw;
+}
+.topimg{
+    height: 10vh;
+}
+.menutop{
+    width: 6vw;
+    height: 5vh;
+    margin: 0.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabecalho-r{
+    height: 10vh; /*original 7%*/
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+.menubusca{
+    margin-right: 5vw;
+}
+
+.loginbtn{
+    text-align: end;
+    margin-right: 2vw;
+}
+
+#busca{
+    background-color: #FAE5D3;
+    color: #291C23;
+    border: 1.5px solid #5E2423;
+    border-radius: 3px;
+}
+.cabecalho-mini{
+    display: unset;
+    display: none;
+}
+header a{
+    color:#FAE5D3;
+    text-decoration: none;
+}
+
+header a:hover{
+    color: #5E2423;
+}
+
+main{
+    max-width: 98vw;
+    margin: auto;
+    padding-top: 15px;
+}
+#promo{
+    background-image: url(../images/cafe-bg-hori-cut.jpg);
+    width: 100%;
+    height: 55vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+}
+
+#destaques{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.bebidas{
+
+    width: 48vw;
+    height: 44vh;
+    box-sizing: border-box;
+}
+
+.blends{
+
+    width: 48vw;
+    height: 44vh;
+    box-sizing: border-box;
+}
+
+
+.bebidas-bg{
+    background-image: url(../images/bebidas-bg-full-2.jpg);
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    height: 44vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bebidas-txt{
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #FAE5D3;
+    font-weight: bold;
+    transform: translate(0, -100%);
+    width: 48vw;
+    height: 44vh;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    
+}
+
+.blends-bg{
+    background-image: url(../images/blend-bg-full.jpg);
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    height: 44vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blends-txt{
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #FAE5D3;
+    font-weight: bold;
+    transform: translate(0, -100%);
+    width: 48vw;
+    height: 44vh;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#carrossel{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: content-box;
+}
+
+.card {
+    width: 19vw;
+    max-height: 60vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.proddesc{
+    background-color: #ff56338e;
+    width: 100%;
+    color: #291C23;
+    margin: 0px;
+    text-align: center;
+}
+
+.login{
+    border: 1px solid #5E2423;
+    margin-top: 5vh;
+    width: 29vw;
+    height: 60vh;
+    margin-bottom: 5vh;
+    box-sizing: content-box;
+    box-shadow: 3px 3px 15px grey;
+    border-radius: 10px;
+    margin-left: 35vw;
+    
+
+}
+
+.logininfo{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: content-box;
+    margin-bottom: 1vw;
+}
+
+.logininfo ul{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.logininfo input{
+    border: 2px solid #5E2423;
+    border-radius: 15px;
+    height: 3vh;
+}
+
+.loginenviar{
+    margin-top: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: content-box;
+}
+
+.produto{
+    width: 96vw;
+    height: 75vh;
+    margin-bottom: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: content-box;
+}
+
+.fotoproduto{
+    width: 50vh;
+    height: 50vh;
+    background-color:rgba(247, 127, 127, 0.4);
+    box-shadow: 3px 3px 15px grey;
+}
+
+.descproduto ul{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.descproduto h1{
+    color: #5E2423;
+}
+
+.descproduto h2{
+    color: #5E2423;
+}
+
+.descproduto #quantidade{
+    width: 3vw;
+    margin-bottom: 2vh;
+}
+
+#addcart{
+    background-color: #BA0000;
+    width: 12vw;
+    height: 5vh;
+    border: 0px;
+    color: #FAE5D3;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+#addcart:hover{
+    background-color: #FAE5D3;
+    color: #BA0000;
+}
+
+section.produtos-lista .container {
+    flex-direction: column;
+}
+
+section.produtos-lista h1 {
+    color: #5E2423;
+    font-size: 40px;
+    margin-bottom: 70px;
+}
+
+section.produtos-lista article {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: flex-start;
+    padding: 50px;
+    width: 100%;
+    border-bottom: 1px solid #555;
+}
+
+section.produtos-lista article .thumb {
+    max-width: 100%;
+    width: 250px;
+    height: 250px;
+    background-color: #555;
+    margin: 0 30px 30px;
+}
+
+section.produtos-lista article .info {
+    padding: 0 30px;
+    width: 800px;
+    max-width: 100%;
+}
+
+section.produtos-lista article .info h2 {
+    margin-top: 0;
+}
+
+footer{
+    margin-top: 5vh;
+    background-color: #5E2423;
+    color: #FAE5D3;
+    box-shadow: 0px -1px 5px grey;
+    height: 30vh;
+
+}
+
+footer a:hover{
+    color: #BA0000;
+}
+
+.footernav{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.footerlogo{
+    background-image: url(../images/cafe-logo-small.jpg);
+    width: 150px;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footerlist{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footersocial{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #5e242386;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #FAE5D3;
+  }
+
+section.contato .container {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+section.contato h1 {
+    color: #5E2423;
+    font-size: 40px;
+    margin-bottom: 70px;
+}
+
+.contato form input:not([type="radio"]):not([type="checkbox"]),
+.contato form textarea,
+.contato form select {
+    width: 96%;
+    padding: 5px;
+}
+
+.contato form input:not([type="radio"]):not([type="checkbox"]):focus,
+.contato form textarea:focus,
+.contato form select:focus {
+    outline-color: #291C23;
+}
+
+.contato form fieldset {
+    margin: 15px 0;
+    border-color: #fff;
+}
+
+.contato form textarea {
+    resize: none;
+    height: 300px;
+}
+
+.contato form label {
+    margin: 10px 0 5px;
+    display: inline-block;
+}
+
+.contato .info {
+    padding: 15px 30px;
+}
+
+.contato .info iframe {
+    max-width: 100%;
+    width: 700px;
+    height: 300px;
+}
+
+section.contato a:any-link,
+section.contato p {
+    color: #575757;
+}
+
+@media (max-width: 650px) {
+    .cabecalho-r{
+        display: unset;
+        display: none;
+    }
+    .cabecalho-l{
+        display: unset;
+        display: none;
+    }
+    .cabecalho-mini{
+        height: 10vh; /*original 7%*/
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+    .logo-mobile{
+        background-image: url(../images/cafe-logo-header.jpg);
+        height: 10vh;
+        width: 10vw;
+        margin-left: 2vw;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+    .menu-mobile{
+        background-image: url(../images/vec-menu.png);
+        height: 2vh;
+        width: 4vw;
+        margin-right: 4vw;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #promo{
+        height: 35vh;
+    }
+
+    #destaques{
+        height: 95vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 10vw;
+        margin-top: 20px;
+    }
+    .bebidas{
+        width: 80vw;
+        height: 44vh;
+        box-sizing: border-box;
+    }
+    
+    .blends{
+        width: 80vw;
+        height: 44vh;
+        box-sizing: border-box;
+    }
+    
+    
+    .bebidas-bg{
+        background-image: url(../images/bebidas-bg-full-2.jpg);
+        filter: blur(4px);
+        -webkit-filter: blur(4px);
+        height: 44vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .bebidas-txt{
+        background-color: black;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #FAE5D3;
+        font-weight: bold;
+        transform: translate(0, -100%);
+        width: 80vw;
+        height: 44vh;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+        
+    }
+
+    .blends-bg{
+        background-image: url(../images/blend-bg-full.jpg);
+        filter: blur(4px);
+        -webkit-filter: blur(4px);
+        height: 44vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .blends-txt{
+        background-color: black;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #FAE5D3;
+        font-weight: bold;
+        transform: translate(0, -100%);
+        width: 80vw;
+        height: 44vh;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    #carrossel{
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        box-sizing: content-box;
+        margin-left: 6vw;
+    }
+
+    .card {
+        width: 40vw;
+        max-height: 60vh;
+        box-sizing: border-box;
+    }
+    
+    #prodimg1{
+        margin: 0px;
+        background-image: url(../images/latte-thumb-small.jpg);
+        width: 40vw;
+        height: 40vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #proddesc1{
+        background-color: #ff56338e;
+        color: #291C23;
+        transform: translate(0, -20%);
+        margin: 0px;
+        text-align: center;
+    }
+    #prodimg2{
+        display: unset;
+        display: none;
+    }
+    #proddesc2{
+        display: unset;
+        display: none;
+    }
+    #prodimg3{
+        margin: 0px;
+        background-image: url(../images/amablend-thumb-small.jpg);
+        width: 40vw;
+        height: 40vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #proddesc3{
+        background-color: #ff56338e;
+        color: #291C23;
+        transform: translate(0, -20%);
+        margin: 0px;
+        text-align: center;
+    }
+    #prodimg4{
+        display: unset;
+        display: none;
+    }
+    #proddesc4{
+        display: unset;
+        display: none;
+    }
+    
+    footer{
+        font-size: 0.7rem;
+    }
+    
+    .footerlogo{
+        background-image: url(../images/cafe-logo-small.jpg);
+        width: 75px;
+        height: 100px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

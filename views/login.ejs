@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cafexpress</title>
+</head>
+<body>
+    <%- include("./partials/header") %>
+    <main>
+        <div class="login">
+            <div class="loginlogo"></div>
+            <hr style="width: 90%; height:1px; border-width:0;color:#5E2423;background-color:#5E2423;">
+            <form method="post">
+                <div class="logininfo">
+                    <ul>
+                        <li><label for="email">Email</label></li>
+                        <li><input type="email" name="email" id="email"></li>
+                    </ul>
+                </div>
+                <div class="logininfo">
+                    <ul>
+                        <li><label for="senha">Senha</label></li>
+                        <li><input type="password" name="senha" id="senha"></li>
+                    </ul>
+                </div>
+                <div class="loginenviar"><button type="submit">Enviar</button></div>
+            </form>
+            <hr style="width: 90%; height:1px; border-width:0;color:#5E2423;background-color:#5E2423;">
+
+            <a href="">Esqueci minha senha</a> | <a href="">Cadastre-se</a>
+        </div>
+    </main>
+    <%- include("./partials/footer") %>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cafexpress</title>
+</head>
+<body>
+    <%- include("./partials/header") %>
+    <main>
+        <section id = 'banner'>
+            <div id="promo"></div>
+        </section>
+
+        <section id = 'destaques'>
+            <div class="bebidas">
+                <div class="bebidas-bg"></div>
+                <div class="bebidas-txt">
+                    <h3>Nossas Bebidas</h3>
+                    <p>Nossas bebidas possuem o mais alto grau de qualidade, desde a seleção dos grãos até a entrega. Saiba mais!</p>
+                </div>
+            </div>
+
+            <div class="blends">
+                <div class="blends-bg"></div>
+                <div class="blends-txt">
+                    <h3>Nossos Blends</h3>
+                    <p>Nossos blends são feitos com os melhores grãos para gerar a melhor combinação para o seu paladar. Venha Conferir</p>
+                </div>
+            </div>
+        </section>
+        <section id="carrossel">
+            <% produtos.forEach(function(produto){ %>
+            <div class="card">
+                <div class="prodimg">
+                    <img src="images/latte-thumb-small.jpg" alt="">
+                </div>
+                <div class="proddesc">
+                    <h4><%= produto.nome %></h4>
+                    <p>R$ <%= produto.preco %>,00</p>
+                </div>
+                </div>
+            </div>
+            <%})%>                
+        </section>
+    </main>
+    <%- include("./partials/footer") %>
+</body>
+</html>
