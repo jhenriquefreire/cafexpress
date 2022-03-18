@@ -1,18 +1,18 @@
 const express = require('express')
 const router = express.Router()
-const produtos = require('../models/produto')
+const { Produto } = require('../models')
 
 router.get('/',
-(req, res) => {
+async (req, res) => {
 
-const obj = {produtos : produtos.lista_produtos()}
+const obj = {produtos : await Produto.findAll()}
     res.render('produtos', obj)
 })
 
 router.get('/:idProduto',
-(req, res) =>{
+async (req, res) =>{
     const { idProduto } = req.params
-    const produto = {produto: produtos.busca_produto(idProduto)}
+    const produto = {produto: await Produto.findByPk(idProduto)}
     res.render('detalheProduto', produto)
 })
 

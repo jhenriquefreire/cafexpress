@@ -1,6 +1,11 @@
-const fs = require("fs")
+const { Usuario } = require('./models')
 
-fs.readFile('./public/images/vermeblend-thumb-full.jpg', 'utf-8', function (err, data) {
-    if(err) throw err;
-    console.log(data);
+const model = async () => await Usuario.create(
+{
+    nome: 'Maria',
+    email: 'maria@outroemail.com',
+    senha: 'Senha',
+    categoria: 'usuario'
 })
+
+model()

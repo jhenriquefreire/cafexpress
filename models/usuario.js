@@ -1,14 +1,27 @@
-const usuarios = [{
-    email: 'joao@email.com',
-    senha:'Descubra',
-    nome: 'João',
-    admin: true
-}]
-
-const busca_usuario = email => {
-    const usuario = usuarios.find(item => item.email == email)
-    return usuario
-}
-
-
-module.exports.busca_usuario = busca_usuario
+module.exports = (connection, DataTypes) => {
+    const model = connection.define('Usuario',
+        {
+            id:{
+                type: DataTypes.INTEGER,
+                primaryKey: true,
+                autoIncrement: true,
+            },
+            nome:{
+                type: DataTypes.STRING(50)
+            },
+            email:{
+                type: DataTypes.STRING(60)
+            },
+            senha:{
+                type: DataTypes.STRING(15)
+            },
+            categoria:{
+                type: DataTypes.STRING(10)
+            }
+    },{
+        timestamps: true,
+        tableName: 'usuarios'
+    });
+    model.sync({alter: true})
+    return model
+};

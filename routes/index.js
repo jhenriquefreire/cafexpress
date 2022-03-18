@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var produtos = require('../models/produto')
+var { Produto } = require('../models')
 
 
 
 /* GET home page. */
 router.get('/',
-(req, res, next) => {
+async (req, res, next) => {
 
-const obj = {produtos: produtos.lista_produtos()}
+const obj = {produtos: await Produto.findAll()}
   res.render('index', obj);
 });
 

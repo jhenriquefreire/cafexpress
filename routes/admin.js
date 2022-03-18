@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var produtos = require('../models/produto')
+var { Produto, Usuario } = require('../models')
 var multer = require('multer')
 
 const upload = multer({ dest:'public/uploads/' })
@@ -22,9 +22,9 @@ router.get('/',
 })
 
 router.get('/produtos',
-(req, res, next) => {
+async (req, res, next) => {
 
-const obj = {produtos: produtos.lista_produtos()}
+const obj = {produtos: await Produto.findAll()}
 res.render('admin/produtos', obj)
 });
 
@@ -55,31 +55,31 @@ function valida_produto(req, res, next) {
 router.post('/produtos/criar',
 upload.single('imagemProduto'),
 valida_produto,
-(req, res) => {
+async (req, res) => {
     req.body.imagem = req.file.filename
-    produtos.inserir_produto(req.body)
+    await produtos.create(req.body)
     res.redirect('/admin/produtos')
 })
 
 router.get('/produtos/:idProduto/remover', 
-(req, res) => {
+async (req, res) => {
     const {idProduto} = req.params
-    produtos.remover_produto(idProduto)
+    await Produto.destroy({where: {id: idProduto}})
     res.redirect('/admin/produtos')
 })
 
 router.get('/produtos/:idProduto/editar',
-(req, res) => {
+async (req, res) => {
     const {idProduto} = req.params
-    const produto = {produto: produtos.busca_produto(idProduto)}
+    const produto = {produto: await Produto.findByPk(idProduto)}
     res.render('admin/editar-produto', produto)
 })
 
 router.post('/produtos/:idProduto/editar',
 valida_produto,
-(req, res) => {
+async (req, res) => {
     const {idProduto} = req.params
-    produtos.alterar_servico(idProduto, req.body)
+    Produto.update(req.body, { where: { id: idProduto } })
     res.redirect('/admin/produtos')
 })
 
