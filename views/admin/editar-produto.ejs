@@ -17,10 +17,10 @@
                 <h1>Editar <%= produto.nome %></h1>
                 <div class="align-row">
                     <form method="POST" enctype="multipart/form-data">
-                        <!-- <% //if(produto.categoria) { %>
+                        <% if(produto.categoria) { %>
                           <label for="categoria">Categoria</label>
-                          <input type="text" id="categoria" name="categoria" value="<%= //produto.categoria.nome %>" required disabled>
-                        <% //} %> -->
+                          <input type="text" id="categoria" name="categoria" value="<%= produto.categoria.nome %>" required disabled>
+                        <% } %>
 
                         <label for="imagemProduto">Envie uma imagem</label>
                         <input type="file" name="imagemProduto">

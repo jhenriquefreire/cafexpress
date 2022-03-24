@@ -26,6 +26,12 @@ app.use(session({
   saveUninitialized: true,
  }))
 
+app.use((req, res, next) => {
+  res.locals.sessaoAtiva = req.session.sessaoAtiva
+  res.locals.nome = req.session.nomeUsuario
+  next() 
+})
+
 app.use('/', indexRouter);
 app.use('/produtos', require('./routes/produtos'))
 app.use('/admin', require('./routes/admin'))

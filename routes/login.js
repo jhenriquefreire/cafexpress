@@ -9,9 +9,9 @@ router.get('/',
 router.post('/',
 async (req, res, next) => {
   const login = await Usuario.findOne({where: {email: req.body.email}})
-  if(login.usuario && login.senha == req.body.senha){
+  if(login && login.senha == req.body.senha){
     req.session.sessaoAtiva = true
-    req.session.categoria = login.categoria
+    // req.session.categoria = login.categoria
     req.session.nomeUsuario = login.nome
     res.redirect('/admin')
   }else{

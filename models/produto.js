@@ -21,10 +21,19 @@ module.exports = (connection, DataTypes) => {
             estoque:{
                 type: DataTypes.INTEGER
             }
-    },{
-        timestamps: true,
+    },
+    {  timestamps: true,
         tableName: 'produtos'
-    });
-    model.sync({alter: true})
+    })
+
+    model.associate = models => {
+        model.belongsTo(models.Categoria, 
+        {
+            foreignKey: 'categoria_id',
+            as: 'categoria'
+        })
+        model.sync({alter: true})
+    }
+
     return model
 };

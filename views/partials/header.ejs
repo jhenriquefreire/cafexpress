@@ -19,7 +19,11 @@
             <button type="submit">Enviar</button>
         </div>
         <div class= 'loginbtn'>
-            <p><a href="../login">Login</a></p>
+            <% if(sessaoAtiva) { %>
+                <p><a href="../admin/"><%= nome %></a> / <a href="../logout/">Logout</a></p>
+            <%} else { %>
+                <p><a href="../login">Login</a></p>
+            <%} %>
         </div>
     </div>
     <div class = 'cabecalho-mini'>

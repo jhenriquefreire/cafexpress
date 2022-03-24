@@ -64,6 +64,7 @@ header{
 }
 
 .loginbtn{
+    width: 20vw;
     text-align: end;
     margin-right: 2vw;
 }

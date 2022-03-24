@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var { Produto, Usuario } = require('../models')
+var { Produto, Categoria } = require('../models')
 var multer = require('multer')
 
 const upload = multer({ dest:'public/uploads/' })
 
 const validaAdmin = (req, res, next) => {
-  if(!req.session.admin){
+  if(!req.session.sessaoAtiva){
     res.redirect('/login')
     return
   }
@@ -71,7 +71,9 @@ async (req, res) => {
 router.get('/produtos/:idProduto/editar',
 async (req, res) => {
     const {idProduto} = req.params
-    const produto = {produto: await Produto.findByPk(idProduto)}
+    const produto = {produto: await Produto.findByPk(idProduto, {
+      include: {model: Categoria, as: 'categoria'}
+    })}
     res.render('admin/editar-produto', produto)
 })
 
@@ -81,6 +83,36 @@ async (req, res) => {
     const {idProduto} = req.params
     Produto.update(req.body, { where: { id: idProduto } })
     res.redirect('/admin/produtos')
+})
+
+router.get('/categorias', 
+async (req, res) => {
+  const obj = { categorias: await Categoria.findAll() }
+  res.render ('admin/categorias', obj) 
+})
+
+router.get('/categorias/:idCategoria',
+async (req, res) => {
+  const { idCategoria } = req.params
+  const obj = { categoria: await Categoria.findByPk(idCategoria, {
+    include: { model: Produto, as: 'produtos' }
+  }) }
+  res.render ('admin/visualizar-categoria', obj)
+})
+
+router.get('/categorias/criar',
+(req, res) => res.render('admin/criar-categoria'))
+
+router.post('/categorias/criar', async function(req, res) {
+  if(req.body.nome.length <= 3) {
+    res.render('erro-validacao', { mensagemErro: 'O tamanho do nome deve ser maior do que 3 caracteres' })
+    return
+  }
+
+  console.log(req.body)
+  await Categoria.create(req.body)
+
+  res.redirect('/admin/categorias')
 })
 
 module.exports = router;
