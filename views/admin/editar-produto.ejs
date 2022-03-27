@@ -17,10 +17,11 @@
                 <h1>Editar <%= produto.nome %></h1>
                 <div class="align-row">
                     <form method="POST" enctype="multipart/form-data">
-                        <% if(produto.categoria) { %>
-                          <label for="categoria">Categoria</label>
-                          <input type="text" id="categoria" name="categoria" value="<%= produto.categoria.nome %>" required disabled>
-                        <% } %>
+                        <select name="categoria_id" id="categoria_id">
+                            <% categorias.forEach(categoria => {%>
+                                <option value="<%= categoria.id %>"><%= categoria.nome %></option>
+                                <% }) %>
+                            </select>
 
                         <label for="imagemProduto">Envie uma imagem</label>
                         <input type="file" name="imagemProduto">

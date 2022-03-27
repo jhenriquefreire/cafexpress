@@ -33,7 +33,13 @@ module.exports = (connection, DataTypes) => {
             as: 'categoria'
         })
         model.sync({alter: true})
+        
+        model.belongsToMany(models.Usuario,
+            {
+                through: models.Carrinho,
+                foreignKey: 'produto_id',
+                as: 'comprador'
+            })            
     }
-
     return model
 };

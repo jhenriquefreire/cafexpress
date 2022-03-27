@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var { Produto, Categoria } = require('../models')
+var { Produto, Categoria, Usuario, Carrinho } = require('../models')
 var multer = require('multer')
 
 const upload = multer({ dest:'public/uploads/' })
@@ -29,8 +29,11 @@ res.render('admin/produtos', obj)
 });
 
 router.get('/produtos/criar',
-(req, res, next) => res.render('admin/criar-produto')
-)
+async (req, res) => {
+  const categorias = await Categoria.findAll()
+  
+  res.render('admin/criar-produto', {categorias: categorias})
+})
 
 function valida_produto(req, res, next) {
     if(!req.body.nome || !req.body.descricao || !req.body.preco) {
@@ -68,6 +71,24 @@ async (req, res) => {
     res.redirect('/admin/produtos')
 })
 
+router.get('/produtos/:idProduto/carrinho', 
+async (req, res) => {
+    const {idProduto} = req.params
+    const idUsuario = req.session.usuario.id
+
+    await Carrinho.create(
+      { produto_id: idProduto, usuario_id: idUsuario }
+    )
+    res.redirect('/admin/carrinho')
+})
+
+router.get('/produtos/:idProduto/carrinho/remover', 
+async (req, res) => {
+    const {idProduto} = req.params
+    await Carrinho.destroy({where: {produto_id: idProduto}})
+    res.redirect('/admin/carrinho')
+})
+
 router.get('/produtos/:idProduto/editar',
 async (req, res) => {
     const {idProduto} = req.params
@@ -91,6 +112,9 @@ async (req, res) => {
   res.render ('admin/categorias', obj) 
 })
 
+router.get('/categorias/criar',
+(req, res) => {res.render('admin/criar-categoria')})
+
 router.get('/categorias/:idCategoria',
 async (req, res) => {
   const { idCategoria } = req.params
@@ -99,9 +123,6 @@ async (req, res) => {
   }) }
   res.render ('admin/visualizar-categoria', obj)
 })
-
-router.get('/categorias/criar',
-(req, res) => res.render('admin/criar-categoria'))
 
 router.post('/categorias/criar', async function(req, res) {
   if(req.body.nome.length <= 3) {
@@ -114,5 +135,12 @@ router.post('/categorias/criar', async function(req, res) {
 
   res.redirect('/admin/categorias')
 })
+
+router.get('/carrinho',
+async (req, res) => {
+  const usuario = await Usuario.findByPk(req.session.usuario.id,
+      { include: { model: Produto, as: 'compra'}
+      })
+  res.render('admin/carrinho', {carrinho: usuario.compra})})
 
 module.exports = router;

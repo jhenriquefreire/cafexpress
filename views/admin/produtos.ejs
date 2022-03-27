@@ -21,7 +21,7 @@
                       <th>ID</th>
                       <th>Nome</th>
                       <th>Descricao</th>
-                      <th>Valor</th>
+                      <th>Preço</th>
                       <th>Ações</th>
                     </tr>
                     <% produtos.forEach(function(produto) { %>
@@ -33,7 +33,7 @@
                       <td>
                         <a href="/admin/produtos/<%= produto.id %>/editar">Editar</a>
                         <a href="/admin/produtos/<%= produto.id %>/remover">Remover</a>
-                        <a href="/admin/produtos/<%= produto.id %>/favoritar" style="text-decoration: none;">⭐</a>
+                        <a href="/admin/produtos/<%= produto.id %>/carrinho" style="text-decoration: none;">⭐</a>
                       </td>
                     </tr>
                     <% }) %>

@@ -8,15 +8,21 @@ router.get('/',
 
 router.post('/',
 async (req, res, next) => {
-  const login = await Usuario.findOne({where: {email: req.body.email}})
-  if(login && login.senha == req.body.senha){
-    req.session.sessaoAtiva = true
-    // req.session.categoria = login.categoria
-    req.session.nomeUsuario = login.nome
-    res.redirect('/admin')
-  }else{
-      res.render('erro-validacao', {mensagemErro: 'Senha inválida'})
-  }
+  try {
+    const login = await Usuario.findOne({where: {email: req.body.email}})
+    if(login && login.senha == req.body.senha){
+      req.session.sessaoAtiva = true
+      // req.session.categoria = login.categoria
+      req.session.usuario = login
+      req.session.nomeUsuario = login.nome
+      res.redirect('/admin')
+    }else{
+        res.render('erro-validacao', {mensagemErro: 'Senha inválida'})
+    }
+    }
+    catch(erro){
+      next(erro)
+    }
   
 })
 

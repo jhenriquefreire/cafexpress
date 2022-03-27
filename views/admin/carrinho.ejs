@@ -14,29 +14,31 @@
     <main>
         <section class="contato">
             <div class="container">
-                <h1>Produtos favoritos</h1>
+                <h1>Carrinho de Produtos</h1>
                 <div class="align-row" style="width: 100%;">
                   <table>
                     <tr>
                       <th>ID</th>
                       <th>Nome</th>
                       <th>Descrição</th>
-                      <th>Valor</th>
+                      <th>Preço</th>
                       <th>Ações</th>
                     </tr>
-                    <% favoritos.forEach(produto => { %>
+                    <% carrinho.forEach(produto => { %>
                       <tr>
                         <td><%= produto.id %></td>
                         <td><%= produto.nome %></td>
                         <td><%= produto.descricao %></td>
-                        <td><%= produto.valor %></td>
+                        <td>R$ <%= produto.preco %></td>
                         <td>
                           <a href="/admin/produtos/<%= produto.id %>/editar">Editar</a>
+                          <a href="/admin/produtos/<%= produto.id %>/carrinho/remover">Remover</a>
                         </td>
                       </tr>
                     <% }) %>
                   </table>
                 </div>
+                <a href="/api/busca-cep">Buscar CEP</a>
             </div>
         </section>
     </main>
