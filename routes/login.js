@@ -12,12 +12,16 @@ async (req, res, next) => {
     const login = await Usuario.findOne({where: {email: req.body.email}})
     if(login && login.senha == req.body.senha){
       req.session.sessaoAtiva = true
-      // req.session.categoria = login.categoria
+      req.session.categoria = login.categoria
       req.session.usuario = login
       req.session.nomeUsuario = login.nome
-      res.redirect('/admin')
+      if(req.session.categoria == 'admin'){
+        res.redirect('/admin')
+      }else if(req.session.categoria == 'usuario'){
+        res.redirect('/usuarios')
+      }
     }else{
-        res.render('erro-validacao', {mensagemErro: 'Senha inválida'})
+        res.render('erro-validacao', {mensagemErro: 'Nome ou senha inválidos'})
     }
     }
     catch(erro){

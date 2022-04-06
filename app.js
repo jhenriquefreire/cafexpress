@@ -38,6 +38,7 @@ app.use('/admin', require('./routes/admin'))
 app.use('/users', usersRouter);
 app.use('/login', require('./routes/login'))
 app.use('/api', require ('./routes/api'))
+app.use('/usuarios', require('./routes/usuarios'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
