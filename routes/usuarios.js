@@ -15,10 +15,13 @@ const validaUsuario = (req, res, next) => {
 router.use(validaUsuario)
 
 
-router.get('/',
-(req, res, next) => {
+router.get('/',(req, res, next) => {
   const usuario = {usuario: req.session.nomeUsuario}
   res.render('usuario/dashboard-usuario', usuario)
+})
+
+router.get('/cadastro',(req,res)=>{
+  res.render('cadastrar')
 })
 
 
