@@ -30,10 +30,10 @@ router.get('/cadastro',(req,res)=>{
 
 //Cambo vazio está comportando tudo como vazio. A Resolver
 function valida_cadastro(req, res, next){
-  // if(!req.body.nome || !req.body.email || !req.body.senha || !req.body.senhaconfirma) {
-  // res.render('erro-validacao', { mensagemErro: 'Preencha todos os campos' })
-  // return
-  // }
+  if(!req.body.nome || !req.body.email || !req.body.senha || !req.body.confirmaSenha) {
+  res.render('erro-validacao', { mensagemErro: 'Preencha todos os campos' })
+  return
+  }
   if(req.body.nome.length < 8){
     res.render('erro-validacao', { mensagemErro: 'Nome muito curto' })
     return
@@ -42,7 +42,7 @@ function valida_cadastro(req, res, next){
     res.render('erro-validacao', { mensagemErro: 'Senha muito curta (mín. 8 caracteres)' })
     return
   }
-  if(req.body.senha != req.body.senhaconfirma){
+  if(req.body.senha != req.body.confirmaSenha){
     res.render('erro-validacao', { mensagemErro: 'senhas devem ser iguais' })
     return
   }
