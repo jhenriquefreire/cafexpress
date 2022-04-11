@@ -262,7 +262,7 @@ main{
 }
 .cadastro h1{
     position: relative;
-    left:30%;
+    text-align: center;/* left:30%; */
 }
 .cadastro input{
     position: relative;

@@ -20,10 +20,5 @@ router.get('/',(req, res, next) => {
   res.render('usuario/dashboard-usuario', usuario)
 })
 
-router.get('/cadastro',(req,res)=>{
-  res.render('cadastrar')
-})
-
-
 
 module.exports = router

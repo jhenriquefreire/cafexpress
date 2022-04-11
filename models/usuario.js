@@ -16,7 +16,8 @@ module.exports = (connection, DataTypes) => {
                 type: DataTypes.STRING(15)
             },
             categoria:{
-                type: DataTypes.STRING(10)
+                type: DataTypes.STRING(10),
+                defaultValue: 'usuario'
             }
     },{
         timestamps: true,

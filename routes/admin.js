@@ -60,7 +60,7 @@ upload.single('imagemProduto'),
 valida_produto,
 async (req, res) => {
     req.body.imagem = req.file.filename
-    await produtos.create(req.body)
+    await Produto.create(req.body)
     res.redirect('/admin/produtos')
 })
 
