@@ -28,7 +28,6 @@ router.get('/cadastro',(req,res)=>{
 })
 
 
-//Cambo vazio está comportando tudo como vazio. A Resolver
 function valida_cadastro(req, res, next){
   if(!req.body.nome || !req.body.email || !req.body.senha || !req.body.confirmaSenha) {
   res.render('erro-validacao', { mensagemErro: 'Preencha todos os campos' })

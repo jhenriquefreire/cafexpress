@@ -22,7 +22,7 @@ router.get('/',
 })
 
 router.get('/produtos',
-async (req, res, next) => {
+async (req, res) => {
 
 const obj = {produtos: await Produto.findAll()}
 res.render('admin/produtos', obj)
@@ -142,5 +142,10 @@ async (req, res) => {
       { include: { model: Produto, as: 'compra'}
       })
   res.render('admin/carrinho', {carrinho: usuario.compra})})
+
+router.get('/moderacao',
+async(req, res) => {
+  res.render('admin/moderacao', {usuarios: await Usuario.findAll()})
+})
 
 module.exports = router;
