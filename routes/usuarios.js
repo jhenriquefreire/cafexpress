@@ -11,7 +11,6 @@ const validaUsuario = (req, res, next) => {
     next()
   }
   
-
 router.use(validaUsuario)
 
 
@@ -20,5 +19,36 @@ router.get('/',(req, res, next) => {
   res.render('usuario/dashboard-usuario', usuario)
 })
 
+router.get('/produtos',
+async (req, res, next) => {
 
-module.exports = router
+const obj = {produtos: await Produto.findAll()}
+res.render('usuario/produtos', obj)
+});
+
+router.get('/produtos/:idProduto/carrinho', 
+async (req, res) => {
+    const {idProduto} = req.params
+    const idUsuario = req.session.usuario.id
+
+    await Carrinho.create(
+      { produto_id: idProduto, usuario_id: idUsuario }
+    )
+    res.redirect('/usuario/carrinho')
+})
+
+router.get('/produtos/:idProduto/carrinho/remover', 
+async (req, res) => {
+    const {idProduto} = req.params
+    await Carrinho.destroy({where: {produto_id: idProduto}})
+    res.redirect('/usuario/carrinho')
+})
+
+router.get('/carrinho',
+async (req, res) => {
+  const usuario = await Usuario.findByPk(req.session.usuario.id,
+      { include: { model: Produto, as: 'compra'}
+      })
+  res.render('usuario/carrinho', {carrinho: usuario.compra})})
+
+module.exports = router;
