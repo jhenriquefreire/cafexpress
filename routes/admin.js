@@ -91,16 +91,28 @@ async (req, res) => {
 
 router.get('/produtos/:idProduto/editar',
 async (req, res) => {
+  console.log("get", req.params)
+  try {
+    
     const {idProduto} = req.params
     const produto = {produto: await Produto.findByPk(idProduto, {
       include: {model: Categoria, as: 'categoria'}
-    })}
+    })
+    }
+    console.log("produto", JSON.stringify(produto))
     res.render('admin/editar-produto', produto)
+  } catch (error) {
+    console.log("-------------------------------");
+   console.log(">>>> ERRO: ", JSON.stringify(error?.parent?.sqlMessage)); //Sempre use isso para saber o erro do sequelize
+    console.log("-------------------------------");
+  }
+    
 })
 
 router.post('/produtos/:idProduto/editar',
 valida_produto,
-async (req, res) => {
+  async (req, res) => {
+    console.log("post",req.params)
     const {idProduto} = req.params
     Produto.update(req.body, { where: { id: idProduto } })
     res.redirect('/admin/produtos')
@@ -146,6 +158,17 @@ async (req, res) => {
 router.get('/moderacao',
 async(req, res) => {
   res.render('admin/moderacao', {usuarios: await Usuario.findAll()})
+})
+
+
+router.get('/moderacao/:idUsuario/editar',
+async (req, res) => {
+  const { idUsuario } = req.params
+  const usuario = {usuario: await Usuario.findByPk(idUsuario,
+    {
+      include: {model: Categoria, as: 'categoria'}
+    })}
+  res.render('admin/editar-usuario', usuario)
 })
 
 module.exports = router;
