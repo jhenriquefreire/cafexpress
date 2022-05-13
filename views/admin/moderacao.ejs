@@ -31,8 +31,8 @@
                       <td><%= usuario.email %></td>
                       <td>R$ <%= usuario.categoria %></td>
                       <td>
-                        <a href="">Editar</a>
-                        <a href="">Remover</a>
+                        <a href="/admin/moderacao/<%= usuario.id %>/editar">Editar</a>
+                        <a href="/admin/moderacao/<%= usuario.id %>/remover">Remover</a>
                       </td>
                     </tr>
                     <% }) %>

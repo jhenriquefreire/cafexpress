@@ -99,10 +99,9 @@ async (req, res) => {
 })
 
 router.post('/produtos/:idProduto/editar',
-valida_produto,
 async (req, res) => {
     const {idProduto} = req.params
-    Produto.update(req.body, { where: { id: idProduto } })
+    await Produto.update(req.body, { where: { id: idProduto } })
     res.redirect('/admin/produtos')
 })
 
@@ -146,6 +145,28 @@ async (req, res) => {
 router.get('/moderacao',
 async(req, res) => {
   res.render('admin/moderacao', {usuarios: await Usuario.findAll()})
+})
+
+
+router.get('/moderacao/:idUsuario/editar',
+async (req, res)=>{
+  const {idUsuario} = req.params
+  const usuario = {usuario: await Usuario.findByPk(idUsuario)}
+    res.render('admin/editar-usuario', usuario)
+})
+
+router.post('/moderacao/:idUsuario/editar',
+async(req, res) => {
+  const {idUsuario} = req.params
+  await Usuario.update(req.body, { where: {id: idUsuario} })
+  res.redirect('/admin/moderacao')
+})
+
+router.get('/moderacao/:idUsuario/remover',
+async (req, res) => {
+  const {idUsuario} = req.params
+  await Usuario.destroy({ where: {id: idUsuario} })
+  res.redirect('/admin/moderacao')
 })
 
 module.exports = router;
