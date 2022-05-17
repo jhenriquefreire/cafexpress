@@ -110,11 +110,11 @@ async (req, res) => {
 })
 
 router.post('/produtos/:idProduto/editar',
-valida_produto,
   async (req, res) => {
     console.log("post",req.params)
     const {idProduto} = req.params
-    Produto.update(req.body, { where: { id: idProduto } })
+    await Produto.update(req.body, { where: { id: idProduto } })
+    console.log(req.body)
     res.redirect('/admin/produtos')
 })
 
