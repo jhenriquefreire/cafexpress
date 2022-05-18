@@ -6,7 +6,7 @@ var multer = require('multer')
 const upload = multer({ dest:'public/uploads/' })
 
 const validaAdmin = (req, res, next) => {
-  if(req.session.categoria =! 'admin'){
+  if(req.session.categoria != 'admin'){
     res.redirect('/login')
     return
   }

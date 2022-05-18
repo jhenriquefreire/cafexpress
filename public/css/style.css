@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
 body {
     margin: 0px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Work Sans', Tahoma, 'Geneva', Verdana, sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -36,12 +38,14 @@ header{
         box-sizing: border-box;
 }
 .logotop{
+    background-image: url(../images/cafexpress-logo-150.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 150px;
     height: 10vh;
     margin-left: 1vw;
 }
-.topimg{
-    height: 10vh;
-}
+
 .menutop{
     width: 6vw;
     height: 5vh;
@@ -85,7 +89,11 @@ header a{
 }
 
 header a:hover{
+    background-color: #fae5d3b0;
     color: #5E2423;
+    padding: 3px 10px;
+    border-radius: 10px;
+    transition: all 0.25s;
 }
 
 main{
@@ -366,6 +374,31 @@ main{
     color: #BA0000;
 }
 
+.menu-dashboard {
+    width: 35vw;
+    height: 30vh;
+    margin: 10vh 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2em;
+    border: 3px solid #5E2423;
+    border-radius: 10px;
+}
+
+.menu-dashboard > a{
+    color: #5E2423;
+    text-decoration: none;
+}
+
+.menu-dashboard > a:hover{
+    background-color: #5E2423;
+    color: #FAE5D3;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
 section.produtos-lista .container {
     flex-direction: column;
 }
@@ -423,12 +456,11 @@ footer a:hover{
 }
 
 .footerlogo{
-    background-image: url(../images/cafe-logo-small.jpg);
-    width: 150px;
+    background-image: url(../images/cafexpress-logo-red-250.png);
+    width: 250px;
     height: 200px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .footerlist{
@@ -508,11 +540,6 @@ section.contato h1 {
     max-width: 100%;
     width: 700px;
     height: 300px;
-}
-
-section.contato a:any-link,
-section.contato p {
-    color: #575757;
 }
 
 @media (max-width: 650px) {

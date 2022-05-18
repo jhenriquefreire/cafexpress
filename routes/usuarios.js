@@ -4,7 +4,7 @@ var { Produto, Categoria, Usuario, Carrinho } = require('../models')
 
 
 const validaUsuario = (req, res, next) => {
-    if(req.session.categoria =! 'usuario'){
+    if(req.session.categoria != 'usuario'){
       res.redirect('/login')
       return
     }
@@ -14,13 +14,13 @@ const validaUsuario = (req, res, next) => {
 router.use(validaUsuario)
 
 
-router.get('/',(req, res, next) => {
+router.get('/',(req, res) => {
   const usuario = {usuario: req.session.nomeUsuario}
   res.render('usuario/dashboard-usuario', usuario)
 })
 
 router.get('/produtos',
-async (req, res, next) => {
+async (req, res) => {
 
 const obj = {produtos: await Produto.findAll()}
 res.render('usuario/produtos', obj)
