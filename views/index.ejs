@@ -35,11 +35,11 @@
             <% produtos.forEach(function(produto){ %>
             <div class="card">
                 <div class="prodimg">
-                    <img src="images/latte-thumb-small.jpg" alt="">
+                    <img src="<%= produto.imagem %>" alt="">
                 </div>
                 <div class="proddesc">
                     <h4><%= produto.nome %></h4>
-                    <p>R$ <%= produto.preco %>,00</p>
+                    <p>R$ <%= produto.preco %></p>
                 </div>
                 </div>
             </div>

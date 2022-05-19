@@ -16,16 +16,22 @@
                 <ul>
                     <li><h1><%= produto.nome %></h1></li>
                     <li><p><%= produto.descricao %></p></li>
-                    <li><h2>R$<%= produto.preco %>,00</h2></li>
+                    <li><h2>R$<%= produto.preco %></h2></li>
                     <form action="">
                         <li><label for="quantidade">Quantidade:</label>
                             <input type="number" name="quantidade" id="quantidade"></li>
-                        <li><button type="submit" id="addcart">Adicionar ao carrinho</button></li>
+                        <li><button type='submit' onclick="alerta()" id="addcart" >Adicionar ao carrinho</button></li>
                     </form>
                 </ul>
             </div>
         </div>
     </main>
     <%- include("./partials/footer") %>
+    <script>
+        function alerta(){
+            alert('necessário fazer login!')
+            window.location.assign('http://localhost:3000/login')
+        }
+    </script>
 </body>
 </html>

@@ -17,12 +17,13 @@
                 <% produtos.forEach(function(produto) { %>
                     <article>
                         <div class="thumb">
+                            <img src="/uploads/<%= produto.imagem %>" alt="">
                         </div>
                         <div class="info">
                             <h2><%= produto.nome %></h2>
                             <p><%= produto.descricao %></p>
-                            <p>R$ <%= produto.preco %></p>
-                            <a href="/<%= produto.id %>" class="btn btn-primary">Detalhes</a>
+                            <h3>R$ <%= produto.preco %></h3>
+                            <a href="/produtos/<%= produto.id %>" class="btn btn-primary">Detalhes</a>
                         </div>
                     </article>
                 <% }) %>
