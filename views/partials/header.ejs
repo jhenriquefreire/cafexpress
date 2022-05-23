@@ -17,10 +17,14 @@
             <button type="submit">Enviar</button> -->
         </div>
         <div class= 'loginbtn'>
-            <% if(sessaoAtiva) { %>
-                <p><a href="../admin/"><%= nome %></a> / <a href="../logout/">Logout</a></p>
-            <%} else { %>
+            <% if(!sessaoAtiva) { %>
                 <p><a href="../login">Login</a></p>
+            <%} else { %>
+                <% if(categoria == 'admin') {%>
+                    <p><a href="../admin/"><%= nome %></a> / <a href="../logout/">Logout</a></p>
+                <%} else {%>
+                    <p><a href="../usuarios/"><%= nome %></a> / <a href="../logout/">Logout</a></p>
+                <%}%>
             <%} %>
         </div>
     </div>

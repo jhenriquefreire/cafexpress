@@ -20,6 +20,8 @@
                 <div class="bebidas-txt">
                     <h3>Nossas Bebidas</h3>
                     <p>Nossas bebidas possuem o mais alto grau de qualidade, desde a seleção dos grãos até a entrega. Saiba mais!</p>
+                    <br>
+                    <a href="/sobre" class="botaoSobre">Saiba mais</a>
                 </div>
             </div>
 
@@ -28,6 +30,8 @@
                 <div class="blends-txt">
                     <h3>Nossos Blends</h3>
                     <p>Nossos blends são feitos com os melhores grãos para gerar a melhor combinação para o seu paladar. Venha Conferir</p>
+                    <br>
+                    <a href="/sobre" class="botaoSobre">Saiba mais</a>
                 </div>
             </div>
         </section>
@@ -35,11 +39,13 @@
             <% produtos.forEach(function(produto){ %>
             <div class="card">
                 <div class="prodimg">
-                    <img src="<%= produto.imagem %>" alt="">
+                    <a href="/produtos/<%= produto.id %>"><img src="/uploads/<%= produto.imagem %>" alt=""></a>
                 </div>
                 <div class="proddesc">
-                    <h4><%= produto.nome %></h4>
-                    <p>R$ <%= produto.preco %></p>
+                    <a href="/produtos/<%= produto.id %>">
+                        <h4><%= produto.nome %></h4>
+                        <p>R$ <%= produto.preco %></p>
+                    </a>
                 </div>
                 </div>
             </div>

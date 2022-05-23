@@ -183,6 +183,20 @@ main{
     box-sizing: border-box;
 }
 
+.botaoSobre{
+    border: 3px solid #FAE5D3;
+    padding: 10px 10px;
+    border-radius: 25px;
+    color: #FAE5D3;
+    text-decoration: none;
+}
+
+.botaoSobre:hover{
+    background-color: #FAE5D3;  
+    transition: 0.5s;  
+    color: #291C23;
+}
+
 #carrossel{
     margin-top: 20px;
     display: flex;
@@ -206,6 +220,11 @@ main{
     color: #291C23;
     margin: 0px;
     text-align: center;
+}
+
+.proddesc a{
+    color: #291C23;
+    text-decoration: none;
 }
 
 .login{
@@ -251,6 +270,43 @@ main{
     align-items: center;
     justify-content: space-evenly;
     box-sizing: content-box;
+}
+
+.loginenviar button{
+    width: 100px;
+    height: 30px;
+    background-color: #5E2423;
+    border: 2px solid #5E2423;
+    color: #FAE5D3;
+    border-radius: 15px;
+}
+
+.loginenviar button:hover{
+    background-color: #BA0000;
+    border: 2px solid #5E2423;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.senhaCadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    margin-bottom: 1vw;
+}
+
+.senhaCadastro a{
+    color: #5E2423;
+    text-decoration: none;
+}
+
+.senhaCadastro a:hover{
+    color: #BA0000;
+}
+
+.senhaCadastro a:active{
+    text-decoration: solid;
 }
 /*--------------------cadastro de usuario -----------------------------------*/
 .cadastro{
@@ -359,6 +415,8 @@ main{
 }
 
 #addcart{
+    padding: 10px 5px;
+    text-decoration: none;
     background-color: #BA0000;
     width: 12vw;
     height: 5vh;
@@ -696,45 +754,6 @@ section.contato h1 {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-    }
-    #proddesc1{
-        background-color: #ff56338e;
-        color: #291C23;
-        transform: translate(0, -20%);
-        margin: 0px;
-        text-align: center;
-    }
-    #prodimg2{
-        display: unset;
-        display: none;
-    }
-    #proddesc2{
-        display: unset;
-        display: none;
-    }
-    #prodimg3{
-        margin: 0px;
-        background-image: url(../images/amablend-thumb-small.jpg);
-        width: 40vw;
-        height: 40vh;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    #proddesc3{
-        background-color: #ff56338e;
-        color: #291C23;
-        transform: translate(0, -20%);
-        margin: 0px;
-        text-align: center;
-    }
-    #prodimg4{
-        display: unset;
-        display: none;
-    }
-    #proddesc4{
-        display: unset;
-        display: none;
     }
     
     footer{

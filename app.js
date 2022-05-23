@@ -28,6 +28,7 @@ app.use(session({
 
 app.use((req, res, next) => {
   res.locals.sessaoAtiva = req.session.sessaoAtiva
+  res.locals.categoria = req.session.categoria
   res.locals.nome = req.session.nomeUsuario
   next() 
 })
