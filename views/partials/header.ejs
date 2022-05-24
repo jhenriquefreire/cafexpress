@@ -15,23 +15,45 @@
         <!-- <div class = 'menubusca'>
             <input type="text" placeholder="Busca" name="busca" id="busca">
             <button type="submit">Enviar</button> -->
+            <div class= 'loginbtn'>
+                <% if(!sessaoAtiva) { %>
+                    <p><a href="../login">Login</a></p>
+                <%} else { %>
+                    <% if(categoria == 'admin') {%>
+                        <p><a href="../admin/"><%= nome %></a> / <a href="../logout/">Logout</a></p>
+                    <%} else {%>
+                        <p><a href="../usuarios/"><%= nome %></a> / <a href="../logout/">Logout</a></p>
+                    <%}%>
+                <%} %>
+            </div>
         </div>
-        <div class= 'loginbtn'>
-            <% if(!sessaoAtiva) { %>
-                <p><a href="../login">Login</a></p>
-            <%} else { %>
-                <% if(categoria == 'admin') {%>
-                    <p><a href="../admin/"><%= nome %></a> / <a href="../logout/">Logout</a></p>
-                <%} else {%>
-                    <p><a href="../usuarios/"><%= nome %></a> / <a href="../logout/">Logout</a></p>
-                <%}%>
-            <%} %>
-        </div>
+
     </div>
     <div class = 'cabecalho-mini'>
-        <div class="logo-mobile"></div>
-        <div id="menu-mobile"></div>
-            <div class="menu-mobile"></div>
+        <a href="/">
+            <div class="logo-mobile"></div>
+        </a>
+        <div class="menu-mobile">
+            <div class="menu-aberto">
+                    <% if(!sessaoAtiva) { %>
+                        <a href="../login">login</a>
+                    <%} else { %>
+                        <% if(categoria == 'admin') {%>
+                            <a href="../admin/"><%= nome %></a>
+                            <hr class="barra-mobile">
+                            <a href="../logout/">logout</a>
+                        <%} else {%>
+                            <a href="../usuarios/"><%= nome %>
+                            <hr class="barra-mobile">
+                            <a href="../logout/">logout</a>
+                        <%}%>
+                    <%} %>
+                <hr class="barra-mobile">
+                <a href="/produtos">menu</a>
+                <hr class="barra-mobile">
+                <a href="/sobre">sobre</a>
+            </div>
+        </div>
         </a>
     </div>
 </header>

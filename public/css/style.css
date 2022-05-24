@@ -11,7 +11,7 @@ body {
 
 ::-webkit-scrollbar-track{
     background: #BA0000;
-    border-radius: 10vw;
+    border-radius: 50vw;
 }
 
 ::-webkit-scrollbar-thumb{
@@ -230,8 +230,8 @@ main{
 .login{
     border: 1px solid #5E2423;
     margin-top: 5vh;
-    width: 29vw;
-    height: 60vh;
+    width: 30vw;
+    height: 50vh;
     margin-bottom: 5vh;
     box-sizing: content-box;
     box-shadow: 3px 3px 15px grey;
@@ -294,7 +294,7 @@ main{
     justify-content: center;
     box-sizing: content-box;
     margin-bottom: 1vw;
-}
+/* font-size: small; */}
 
 .senhaCadastro a{
     color: #5E2423;
@@ -385,7 +385,7 @@ main{
     align-items: center;
     justify-content: space-evenly;
     box-sizing: content-box;
-}
+/* flex-wrap: wrap; */}
 
 .fotoproduto{
     width: 50vh;
@@ -469,9 +469,9 @@ section.produtos-lista h1 {
 
 section.produtos-lista article {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: center;
     align-items: flex-start;
-    padding: 50px;
+    padding: 50px 10px;
     width: 100%;
     border-bottom: 1px solid #555;
 }
@@ -579,6 +579,34 @@ section.contato .container {
     align-items: flex-start;
 }
 
+div.align-row{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+div.align-row a{
+    color: #5E2423;
+    text-decoration: none;
+}
+
+div.align-row a:hover{
+    color: #FF5633;
+}
+
+#novo-produto{
+    padding: 10px 10px;
+    background-color: #BA0000;
+    color: #FAE5D3;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#novo-produto:hover{
+    background-color: #5E2423;
+    color: #FF5633;
+}
+
 section.contato h1 {
     color: #5E2423;
     font-size: 40px;
@@ -632,22 +660,25 @@ section.contato h1 {
         display: unset;
         display: none;
     }
+    .loginbtn{
+        display: none;
+    }
+
     .cabecalho-mini{
         height: 10vh; /*original 7%*/
         width: 100vw;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         box-sizing: border-box;
     }
     .logo-mobile{
-        background-image: url(../images/cafe-logo-header.jpg);
-        height: 10vh;
-        width: 10vw;
+        background-image: url(../images/cafexpress-logo-150.png);
+        width: 150px;
+        height: 100px;
         margin-left: 2vw;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
 
     }
     .menu-mobile{
@@ -655,10 +686,35 @@ section.contato h1 {
         height: 2vh;
         width: 4vw;
         margin-right: 4vw;
+        margin-left: 90vw;
+        position: absolute;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
+
+    .menu-aberto{
+        width: 40vw;
+        height: 30vh;
+        transform: translate(-78%, 20%);
+        background-color: #BA0000;
+        color: #FAE5D3;
+        display: none;  
+    }
+
+    .menu-mobile:hover > div {
+        display: flex;
+        flex-direction: column;
+        border-radius: 0px 0px 5px 5px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    hr.barra-mobile{
+        width: 33%;
+        color: #fae5d3c0;
+    }
+
     #promo{
         height: 35vh;
     }
@@ -736,6 +792,7 @@ section.contato h1 {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        flex-wrap: wrap;
         box-sizing: content-box;
         margin-left: 6vw;
     }
@@ -755,17 +812,42 @@ section.contato h1 {
         background-repeat: no-repeat;
         background-size: cover;
     }
+
+    div.produto{
+        flex-wrap: wrap;
+    }
+
+    div.login{
+        width: 60vw;
+        height: 50vh;
+        margin-left: 20vw;
+        font-size: small;
+    }
+
+    div.menu-dashboard{
+        font-size: 1em;
+        width: 60vw;
+    margin: 10vh 20vw;}
     
     footer{
         font-size: 0.7rem;
     }
     
     .footerlogo{
-        background-image: url(../images/cafe-logo-small.jpg);
-        width: 75px;
+        background-image: url(../images/cafexpress-logo-red-150.png);
+        width: 200px;
         height: 100px;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+    }
+
+    .footercol{
+        display: none;
+    }
+    .footersocial{
+        display: none;
+    }
+    section.produtos-lista .container > article {
+        flex-wrap: wrap;
     }
 }
