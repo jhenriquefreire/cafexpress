@@ -518,6 +518,25 @@ section.produtos-lista article .info a:hover {
     background-color: #5E2423;
 }
 
+article.sobre-nos h1{
+    color: #5E2423;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+article.sobre-nos p::first-letter{
+    color: #BA0000;
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+article.sobre-nos hr{
+    margin: 30px 0;
+    height: 1px;
+    border: none;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, #5E2423));
+}
+
 footer{
     margin-top: 5vh;
     background-color: #5E2423;
