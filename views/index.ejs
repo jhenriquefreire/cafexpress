@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/keen-slider@6.6.14/keen-slider.min.css"/>
     <link rel="stylesheet" href="css/style.css">
     <title>Cafexpress</title>
 </head>
 <body>
     <%- include("./partials/header") %>
     <main>
-        <section id = 'banner'>
-            <div id="promo"></div>
-        </section>
+        <div id="my-keen-slider" class="keen-slider">
+            <div class="keen-slider__slide number-slide1">
+                <h3>De apreciadores de café para apreciadores de café. Nossa inspiração são nossos clientes</h3>
+            </div>
+            <div class="keen-slider__slide number-slide2">
+                <h3>Bebidas feitas para que você possa aproveitar nosso melhor</h3>
+            </div>
+            <div class="keen-slider__slide number-slide3">
+                <h3>Os melhores grãos, selecionados para proporcionar a melhor experiência</h3>
+            </div>
+    
+          </div>
 
         <section id = 'destaques'>
             <div class="bebidas">
@@ -53,5 +64,11 @@
         </section>
     </main>
     <%- include("./partials/footer") %>
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.6.14/keen-slider.min.js"></script>
+    <script>
+      var slider = new KeenSlider("#my-keen-slider", {
+        loop: true,
+      })
+    </script>
 </body>
 </html>
